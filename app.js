@@ -15,25 +15,14 @@
 (function() {
 	'use strict';
 
-	angular.module('BookCounter', [])
-	.controller('LibraryBooks', function($scope) {
-		// $scope.title = "";
-		$scope.bookname = "";
-		$scope.total_number_of_letters = 0;
+	angular.module('DIApp', [])
+	.controller('DIController', function($scope, $filter) {
+		$scope.country_name = "";
 
-		$scope.get_numeric_total = function() {
-			var accumulated_total = accumulateTotal($scope.bookname);
-			$scope.total_number_of_letters = accumulated_total;
+		$scope.to_upper_case = function() {
+			var Upcase = $filter('uppercase');
+			$scope.country_name = Upcase($scope.country_name)
 
 		};
-
-		function accumulateTotal(string) {
-			var total_book_letters = 0;
-			for (var i = 0; i < string.length; i++) {
-				total_book_letters += string.charCodeAt(i);
-			}
-
-			return total_book_letters;
-		}
 	});
 })();
