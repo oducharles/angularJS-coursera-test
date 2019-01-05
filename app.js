@@ -11,15 +11,23 @@
 		}
 	});
 })();*/
-/*
+
 (function() {
 	'use strict';
 
-	angular.module('DIApp', [])
-	.controller('DIController', ['$scope', '$filter', DIControllerFunction]);
+	angular.module('MessageApp', [])
+	.controller('MessageController', MessageControllerFunction);
 
-	function DIControllerFunction($scope, $filter) {
-		$scope.country_name = "";
+	MessageControllerFunction.$inject = ['$scope', '$filter'];
+
+	function MessageControllerFunction($scope, $filter) {
+		$scope.message = "I am Charles";
+		$scope.country_name = "chuck";
+
+
+		$scope.newMessage = function() {
+			return "Am taking on a course on AngularJS with coursera";
+		};
 
 		$scope.to_upper_case = function() {
 			var Upcase = $filter('uppercase');
@@ -27,6 +35,4 @@
 
 		};
 	}
-})();*/
-
-!function(){"use strict";angular.module("DIApp",[]).controller("DIController",["$scope","$filter",function(n,e){n.country_name="",n.to_upper_case=function(){var o=e("uppercase");n.country_name=o(n.country_name)}}])}();
+})();
