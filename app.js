@@ -23,10 +23,14 @@
 	function MessageControllerFunction($scope, $filter) {
 		$scope.message = "I am Charles";
 		$scope.country_name = "chuck";
+		$scope.stateOfBeing = "relaxed";
 
 
 		$scope.newMessage = function() {
 			return "Am taking on a course on AngularJS with coursera";
+		};
+		$scope.getToWork = function() {
+			$scope.stateOfBeing = "serious";
 		};
 
 		$scope.to_upper_case = function() {
