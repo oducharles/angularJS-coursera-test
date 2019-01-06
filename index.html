@@ -4,6 +4,21 @@
 	<script src="angular.min.js"></script>
 	<script src="app.js"></script>
 	<title>Charles@Coursera</title>
+
+	<style type="text/css">
+		.green{
+			color: green;
+		}
+		.red{
+			color: red;
+		}
+		.green_border{
+			border-color: green;
+		}
+		.red_border{
+			border-color: red;
+		}
+	</style>
 </head>
 <body ng-app="MessageApp">
 	<h1>Filters</h1>
@@ -16,13 +31,27 @@
 		<br><br>
 		{{intro()}}, {{newMessage()}}
 		<br><br>
-		Supposed Course cost: {{courseCost | currency :"UGX" :5}}
+		Supposed Course cost: <strike>{{courseCost | currency :"UGX" :5}}</strike> 
 		<br><br>
 
 		<div>
 			<button ng-click="getToWork()">Get Serious</button>
 			<br><br>
 			<img ng-src="img/charles_{{stateOfBeing}}.jpg" width="120px" height="auto">
+		</div>
+		<br>
+		<h1>Assignment 1</h1>
+		<div>
+			Please enter the items you are eating for lunch below!
+			<br><br>
+			<b>Note:</b> Items must be comma seperatred with space between each
+			<br>
+			<input type="text" ng-class="borderColor"
+			ng-model="getItemsForLunch">
+			<button ng-click="checkItemsForLunch()">Check If Too Much</button>
+			<br><br>
+			<h4 ng-class="colorClass">{{lunchMessage}}</h4>
+
 		</div>
 		
 	</div>
