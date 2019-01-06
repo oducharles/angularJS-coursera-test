@@ -21,8 +21,13 @@
 	MessageControllerFunction.$inject = ['$scope', '$filter'];
 
 	function MessageControllerFunction($scope, $filter) {
-		$scope.message = "I am Charles";
+		$scope.intro = function() {
+			var my_intro = "I am Charles";
+			var intro = $filter('uppercase')(my_intro);
+			return intro;
+		};
 		$scope.country_name = "chuck";
+		$scope.courseCost = .68;
 		$scope.stateOfBeing = "relaxed";
 
 
