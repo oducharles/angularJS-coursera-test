@@ -30,8 +30,9 @@
 
 		<br><br>
 		{{intro()}}, {{newMessage()}}
-		<br><br>
-		Supposed Course cost: <strike>{{courseCost | currency :"UGX" :5}}</strike> 
+		<br>
+		Actually, {{changeToProgram()}}<br>
+		Supposed Course cost: <strike>{{courseCost | currency :"UGX" :5}}</strike> <b>{{ appendFreeCost() }}</b>
 		<br><br>
 
 		<div>

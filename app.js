@@ -16,18 +16,21 @@
 	'use strict';
 
 	angular.module('MessageApp', [])
-	.controller('MessageController', MessageControllerFunction);
+	.controller('MessageController', MessageControllerFunction)
+	.filter('freeCost', appendFreeFilter)
+	.filter('courseLabel', changeLabel);
 
-	MessageControllerFunction.$inject = ['$scope', '$filter'];
+	MessageControllerFunction.$inject = ['$scope', '$filter', 'freeCostFilter', 'courseLabelFilter']
 
-	function MessageControllerFunction($scope, $filter) {
+	function MessageControllerFunction($scope, $filter, freeCostFilter, courseLabelFilter) {
 		$scope.intro = function() {
 			var my_intro = "I am Charles";
 			var intro = $filter('uppercase')(my_intro);
 			return intro;
 		};
+
 		$scope.country_name = "OCl@chuck";
-		$scope.courseCost = .68;
+		$scope.courseCost = .780;
 		$scope.stateOfBeing = "relaxed";
 
 
@@ -38,9 +41,23 @@
 		$scope.newMessage = function() {
 			return "Am taking a course on AngularJS with coursera";
 		};
+
+		$scope.changeToProgram = function() {
+			var msg = "Am taking a course on AngularJS with coursera";
+			msg = courseLabelFilter(msg);
+			return msg;
+		};
+
+		$scope.appendFreeCost = function() {
+			var price = "";
+			price = freeCostFilter(price);
+			return price;
+		};
+
 		$scope.getToWork = function() {
 			$scope.stateOfBeing = "serious";
 		};
+
 		$scope.to_upper_case = function() {
 			var Upcase = $filter('uppercase');
 			$scope.country_name = Upcase($scope.country_name)
@@ -67,6 +84,22 @@
 				$scope.lunchMessage = "Too Much";
 			}
 
+		};
+	}
+
+	function appendFreeFilter() {
+		return function(input) {
+			input = input || "";
+			input = input+ " FREE";
+			return input;
+		};
+	}
+
+	function changeLabel() {
+		return function(input) {
+			var input = input || "";
+			input = input.replace("course", "Programme");
+			return input;
 		};
 	}
 })();
