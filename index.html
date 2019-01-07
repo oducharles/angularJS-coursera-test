@@ -30,8 +30,13 @@
 
 		<br><br>
 		{{intro()}}, {{newMessage()}}
-		<br>
-		Actually, {{changeToProgram()}}<br>
+		<br><br>
+		Actually, {{changeToProgram()}}
+		<br><br>
+		Better still, {{changeToProgram() | programLabel: "Programme" : "Programming Course"}}
+		<br><br>
+		To be bold enough, {{changeToProgram() | programLabel: "Programme" : "Programming Course" | uppercase}}
+		<br><br>
 		Supposed Course cost: <strike>{{courseCost | currency :"UGX" :5}}</strike> <b>{{ appendFreeCost() }}</b>
 		<br><br>
 

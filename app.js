@@ -18,7 +18,8 @@
 	angular.module('MessageApp', [])
 	.controller('MessageController', MessageControllerFunction)
 	.filter('freeCost', appendFreeFilter)
-	.filter('courseLabel', changeLabel);
+	.filter('courseLabel', changeLabel)
+	.filter('programLabel', changeAnotherLabel);
 
 	MessageControllerFunction.$inject = ['$scope', '$filter', 'freeCostFilter', 'courseLabelFilter']
 
@@ -99,6 +100,14 @@
 		return function(input) {
 			var input = input || "";
 			input = input.replace("course", "Programme");
+			return input;
+		};
+	}
+
+	function changeAnotherLabel() {
+		return function(input, old_label, new_label) {
+			var input = input || "";
+			input = input.replace(old_label, new_label);
 			return input;
 		};
 	}
