@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="../angular.min.js"></script>
+	<script src="app.js"></script>
+	<title>Ocl@Module_II</title>
+</head>
+<body ng-app="shoppingListApp">
+	<h1>(ng-repeat)</h1>
+	<div ng-controller="shoppingListController">
+		<h3>Shopping List:</h3>
+		<!-- <ul>
+			<li ng-repeat="item in shoppingList1">{{ item }}</li>
+		</ul> -->
+
+		<!-- <ul>
+			<li ng-repeat="item in shoppingList2">Bring {{ item.name }} or fine of {{item.fine}}</li>
+		</ul> -->
+
+		<ul>
+			<li ng-repeat="item in shoppingList2">{{$index + 1}}. Bring {{ item.name }} or a fine of {{item.fine}}</li>
+		</ul>
+	</div>
+
+</body>
+</html>
