@@ -5,22 +5,53 @@
 	<script src="app.js"></script>
 	<title>Ocl@Module_II</title>
 </head>
-<body ng-app="shoppingListApp">
-	<h1>(ng-repeat)</h1>
-	<div ng-controller="shoppingListController">
-		<h3>Shopping List:</h3>
-		<!-- <ul>
-			<li ng-repeat="item in shoppingList1">{{ item }}</li>
-		</ul> -->
-
-		<!-- <ul>
-			<li ng-repeat="item in shoppingList2">Bring {{ item.name }} or fine of {{item.fine}}</li>
-		</ul> -->
-
-		<ul>
-			<li ng-repeat="item in shoppingList2">{{$index + 1}}. Bring {{ item.name }} or a fine of {{item.fine}}</li>
-		</ul>
+<body ng-app="ShoppingListCheckOff">
+	<h1>Back to School Requirements</h1>
+	<div ng-controller="ToBuyController as toBuy">
+		<h3>To Buy</h3>
+		<ol>
+			<li ng-repeat="item in toBuy.list">Buy {{item.quantity}} {{ item.name }}
+			<button ng-click="toBuy.addToBought($index)">Bought</button>
+			</li>		
+			<span ng-if="!toBuy.list.length" class="animate-if">
+				Everything is bought
+			</span>
+		</ol>
 	</div>
+
+	<div ng-controller="AlreadyBoughtController as boughtItems">
+		<h3>Already Bought:</h3>
+		<ol>
+			<li ng-repeat="item in boughtItems.list">Bought {{item.quantity}} {{ item.name }}</li>
+		</ol>
+		<span ng-if="!boughtItems.list.length" class="animate-if">
+			Nothing Bought Yet
+		</span>
+	</div>
+
+
+
+
+	<!-- <div ng-controller="shoppingListController">
+		<h3>Already Bought:</h3>
+
+		Search The List:<input type="" name="" ng-model="searchItem">
+		<ul>
+			<li ng-repeat="item in shoppingList1 | filter: searchItem">{{ item }}</li>
+		</ul> -->
+
+		<!-- <ul>
+			<li ng-repeat="item in myShoppingList">Bring {{ item.name }} or quantity of {{item.quantity}}</li>
+		</ul> -->
+		<!-- <input type="text" name="" ng-model="myShoppingList[0].quantity">
+		<ul>
+			<li ng-repeat="item in myShoppingList">{{$index + 1}}. Bring {{ item.name }} or a quantity of {{item.quantity}}</li>
+		</ul>
+		<h4>Add new school requirement</h4>
+		<input type="" name="" ng-model="newItemName" placeholder="Enter Item Name">
+		<input type="" name="" ng-model="newItemquantity" placeholder="Enter Item Name">
+		<button ng-click="addMoreItem()">Add New Item</button> -->
+	<!-- </div> -->
 
 </body>
 </html>
