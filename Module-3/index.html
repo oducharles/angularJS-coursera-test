@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="../angular.min.js"></script>
+	<script src="app.js"></script>
+	<title>Ocl@Module_II</title>
+</head>
+<body ng-app="NarrowItDownApp">
+	<h1>Restuarant Menu</h1>
+	<div ng-controller="NarrowItDownController  as narrowDown">
+		<h3>Search For A Menu Item:</h3>
+
+		<input type="text" placeholder="Enter food description" ="" ng-model="description">
+		<button ng-click="narrowDown.findInMenu(description);">Narrow It Down For Me</button>
+		
+		<ul>
+			<li ng-repeat="item in narrowDown.list">{{ item.name }}, {{ item.short_name }}, {{ item.description }} 
+
+			<button ng-click="narrowDown.dontWantThis($index)">Don't want this one!</button>
+			</li>		
+			<span ng-model="narrowDown.noResult">
+				{{ narrowDown.noResult }}
+			</span>
+		</ul>
+
+		<!-- <ul>
+			<li ng-repeat="item in narrowDown.list">Bring {{ item.name }} or quantity of {{item.quantity}}</li>
+		</ul>
+		<input type="text" name="" ng-model="narrowDown.list[0].quantity">
+		<ul>
+			<li ng-repeat="item in narrowDown.list">{{$index + 1}}. Bring {{ item.name }} or a quantity of {{item.quantity}}</li>
+		</ul>
+		<h4>Add new school requirement</h4>
+		<input type="" name="" ng-model="newItemName" placeholder="Enter Item Name">
+		<input type="" name="" ng-model="newItemquantity" placeholder="Enter Item Name">
+		<button ng-click="addMoreItem()">Add New Item</button> -->
+	</div>
+
+</body>
+</html>
