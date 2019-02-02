@@ -3,7 +3,7 @@
 <head>
 	<script src="../angular.min.js"></script>
 	<script src="app.js"></script>
-	<title>Ocl@Module_II</title>
+	<title>Ocl@Module_III</title>
 </head>
 <body ng-app="NarrowItDownApp">
 	<h1>Restuarant Menu</h1>
@@ -18,22 +18,11 @@
 
 			<button ng-click="narrowDown.dontWantThis($index)">Don't want this one!</button>
 			</li>		
-			<span ng-model="narrowDown.noResult">
-				{{ narrowDown.noResult }}
+			<span ng-if="!narrowDown.list.length" ng-model="narrowDown.noResult">
+				{{narrowDown.noResult}}
 			</span>
 		</ul>
 
-		<!-- <ul>
-			<li ng-repeat="item in narrowDown.list">Bring {{ item.name }} or quantity of {{item.quantity}}</li>
-		</ul>
-		<input type="text" name="" ng-model="narrowDown.list[0].quantity">
-		<ul>
-			<li ng-repeat="item in narrowDown.list">{{$index + 1}}. Bring {{ item.name }} or a quantity of {{item.quantity}}</li>
-		</ul>
-		<h4>Add new school requirement</h4>
-		<input type="" name="" ng-model="newItemName" placeholder="Enter Item Name">
-		<input type="" name="" ng-model="newItemquantity" placeholder="Enter Item Name">
-		<button ng-click="addMoreItem()">Add New Item</button> -->
 	</div>
 
 </body>

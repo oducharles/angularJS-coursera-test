@@ -10,7 +10,7 @@
 	function narrowItDownController(menuSearchService) {
 		var narrowDown = this;
 		
-		narrowDown.noResults = "";
+		narrowDown.noResult = "Nothing was found!";
 
 		narrowDown.findInMenu  = function(description) {
 
@@ -25,7 +25,7 @@
 				narrowDown.list = output;
 			})
 			.catch(function(error) {
-				narrowDown.noResults = "Nothing was found!";
+				narrowDown.noResult = "Nothing was found!";
 			});
 		};
 
