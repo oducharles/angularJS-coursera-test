@@ -8,27 +8,30 @@
 	<h1>Restaurant Menu</h1>
 
 	<div class="tabs">
-	<button>
+	<!-- <button>
 		<a ui-sref="home" ui-sref-active="activeTab">HOME</a>
-	</button>
+	</button> -->
 	<button>
 		<a ui-sref="categories" ui-sref-active="activeTab">CATEGORIES</a>
 	</button>
 	</div>
 
-	<ui-view></ui-view>
+	<ui-view>
+
+	</ui-view>
 
 	<!-- Libraries -->
 
-	<script src="../angular.min.js"></script>
-	<script src="angular-ui-router.min.js"></script>
+	<script src="libraries/angular.min.js"></script>
+	<script src="libraries/angular-ui-router.min.js"></script>
 
 	<!-- Modules -->
-	<script src="menuapp.module.js"></script>
-	<script src="data.module.js"></script>
+	<script src="modules/menuapp.module.js"></script>
+	<script src="modules/data.module.js"></script>
+	<!-- <script src="components/categoriesListController.js"></script> -->
+	<script src="routes.js"></script>
 	<script src="menudata.service.js"></script>
-	<script src="categories.component.js"></script>
-	<!-- <script src="routes.js"></script> -->
+	<script src="components/categories.component.js"></script>
 
 </body>
 </html>
